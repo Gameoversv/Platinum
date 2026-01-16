@@ -127,13 +127,30 @@
 }
 
 .service-image {
-  font-size: 8rem;
-  filter: drop-shadow(0 10px 30px rgba(0, 217, 255, 0.3));
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 163, 193, 0.1) 100%);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  border-radius: 50%;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--primary-color);
+  filter: drop-shadow(0 10px 30px rgba(0, 217, 255, 0.3));
+}
+
+.service-image svg {
+  width: 70px;
+  height: 70px;
+  filter: drop-shadow(0 4px 12px rgba(0, 217, 255, 0.4));
 }
 
 .service-item:hover .service-image {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.15);
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(0, 163, 193, 0.15) 100%);
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.4), 0 0 50px rgba(0, 217, 255, 0.2);
   filter: drop-shadow(0 15px 40px rgba(0, 217, 255, 0.5));
 }
 
