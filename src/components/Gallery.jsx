@@ -5,18 +5,21 @@ function Gallery() {
   const [selectedFilter, setSelectedFilter] = useState('todos')
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
-  const [sliderPosition, setSliderPosition] = useState(50)
 
   // Simulación de galería - en producción estas serían imágenes reales
   const galleryItems = [
-    { id: 1, category: 'lavado', title: 'Lavado Detailing Platinum', before: '🚗', after: '✨' },
-    { id: 2, category: 'interior', title: 'Limpieza de Interior', before: '💺', after: '🌟' },
-    { id: 3, category: 'exterior', title: 'Pulido y Encerado', before: '🚙', after: '💎' },
-    { id: 4, category: 'motor', title: 'Limpieza de Motor', before: '⚙️', after: '🔧' },
-    { id: 5, category: 'lavado', title: 'Lavado Premium', before: '🚗', after: '✨' },
-    { id: 6, category: 'interior', title: 'Tratamiento de Tapicería', before: '🪑', after: '🌈' },
-    { id: 7, category: 'exterior', title: 'Restauración de Faros', before: '🔦', after: '💡' },
-    { id: 8, category: 'plasticos', title: 'Tratamiento de Plásticos', before: '⬜', after: '⬛' },
+    { id: 1, category: 'lavado', title: 'Lavado Detailing Platinum', description: 'Lavado completo con acabado premium' },
+    { id: 2, category: 'interior', title: 'Limpieza de Interior', description: 'Tratamiento profundo de tapicería y superficies' },
+    { id: 3, category: 'exterior', title: 'Pulido y Encerado', description: 'Acabado de alto brillo con protección duradera' },
+    { id: 4, category: 'motor', title: 'Limpieza de Motor', description: 'Desengrase y limpieza profesional del motor' },
+    { id: 5, category: 'lavado', title: 'Lavado Premium', description: 'Servicio de lavado con atención al detalle' },
+    { id: 6, category: 'interior', title: 'Tratamiento de Tapicería', description: 'Restauración y protección de asientos' },
+    { id: 7, category: 'exterior', title: 'Restauración de Faros', description: 'Pulido y sellado de faros opacos' },
+    { id: 8, category: 'plasticos', title: 'Tratamiento de Plásticos', description: 'Restauración de color y brillo en plásticos' },
+    { id: 9, category: 'exterior', title: 'Encerado Profesional', description: 'Protección de pintura con cera premium' },
+    { id: 10, category: 'lavado', title: 'Detailing Completo', description: 'Servicio integral exterior e interior' },
+    { id: 11, category: 'motor', title: 'Limpieza de Compartimiento', description: 'Limpieza completa del área del motor' },
+    { id: 12, category: 'interior', title: 'Limpieza con Ozono', description: 'Eliminación de olores y desinfección profunda' },
   ]
 
   const filters = [
@@ -60,13 +63,6 @@ function Gallery() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [lightboxOpen, lightboxIndex])
 
-  const handleSliderMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const percentage = (x / rect.width) * 100
-    setSliderPosition(Math.max(0, Math.min(100, percentage)))
-  }
-
   return (
     <div className="gallery-page">
       <section className="page-hero">
@@ -92,54 +88,9 @@ function Gallery() {
           ))}
         </div>
 
-        {/* Slider Antes/Después Interactivo */}
-        <div className="before-after-slider">
-          <h2>Comparador Interactivo</h2>
-          <p>Desliza para ver el antes y después</p>
-          <div 
-            className="slider-container"
-            onMouseMove={handleSliderMove}
-            onTouchMove={(e) => {
-              const touch = e.touches[0]
-              const rect = e.currentTarget.getBoundingClientRect()
-              const x = touch.clientX - rect.left
-              const percentage = (x / rect.width) * 100
-              setSliderPosition(Math.max(0, Math.min(100, percentage)))
-            }}
-          >
-            <div className="slider-image before-image">
-              <div className="comparison-image-placeholder">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
-                  <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                </svg>
-                <span className="placeholder-text">Antes del servicio</span>
-              </div>
-              <span className="slider-label">ANTES</span>
-            </div>
-            <div 
-              className="slider-image after-image"
-              style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-            >
-              <div className="comparison-image-placeholder">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
-                  <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                </svg>
-                <span className="placeholder-text">Después del servicio</span>
-              </div>
-              <span className="slider-label">DESPUÉS</span>
-            </div>
-            <div 
-              className="slider-divider"
-              style={{ left: `${sliderPosition}%` }}
-            >
-              <div className="slider-handle">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                  <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-                </svg>
-              </div>
-            </div>
-          </div>
+        <div className="gallery-intro">
+          <h2>Nuestros Trabajos</h2>
+          <p>Cada vehículo recibe atención especializada y cuidado profesional. Aquí puedes ver algunos de nuestros servicios terminados.</p>
         </div>
 
         <div className="gallery-grid">
@@ -149,32 +100,24 @@ function Gallery() {
               className="gallery-item"
               onClick={() => openLightbox(index)}
             >
-              <div className="comparison-container">
-                <div className="comparison-side before">
-                  <span className="comparison-label">Antes</span>
-                  <div className="comparison-image-placeholder">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
-                      <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span className="placeholder-text">Imagen antes</span>
-                  </div>
+              <div className="gallery-image-container">
+                <div className="gallery-image-placeholder">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
+                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                  </svg>
+                  <span className="placeholder-text">Imagen del servicio</span>
                 </div>
-                <div className="comparison-divider">
-                  <div className="divider-line"></div>
-                  <div className="divider-icon">→</div>
-                </div>
-                <div className="comparison-side after">
-                  <span className="comparison-label">Después</span>
-                  <div className="comparison-image-placeholder">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
-                      <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span className="placeholder-text">Imagen después</span>
-                  </div>
+                <div className="gallery-overlay">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="zoom-icon">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                  </svg>
                 </div>
               </div>
-              <h3>{item.title}</h3>
-              <span className="category-badge">{filters.find(f => f.key === item.category)?.label}</span>
+              <div className="gallery-item-info">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <span className="category-badge">{filters.find(f => f.key === item.category)?.label}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -203,28 +146,19 @@ function Gallery() {
             <button className="lightbox-nav lightbox-next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>›</button>
             
             <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <div className="lightbox-images">
-                <div className="lightbox-side">
-                  <span className="lightbox-label">ANTES</span>
-                  <div className="comparison-image-placeholder large">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
-                      <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span className="placeholder-text">Imagen antes</span>
-                  </div>
-                </div>
-                <div className="lightbox-divider">→</div>
-                <div className="lightbox-side">
-                  <span className="lightbox-label">DESPUÉS</span>
-                  <div className="comparison-image-placeholder large">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
-                      <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span className="placeholder-text">Imagen después</span>
-                  </div>
+              <div className="lightbox-image">
+                <div className="comparison-image-placeholder large">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="placeholder-icon">
+                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                  </svg>
+                  <span className="placeholder-text">Imagen del servicio</span>
                 </div>
               </div>
-              <h3>{filteredItems[lightboxIndex]?.title}</h3>
+              <div className="lightbox-info">
+                <h3>{filteredItems[lightboxIndex]?.title}</h3>
+                <p>{filteredItems[lightboxIndex]?.description}</p>
+                <span className="category-badge">{filters.find(f => f.key === filteredItems[lightboxIndex]?.category)?.label}</span>
+              </div>
             </div>
           </div>
         )}

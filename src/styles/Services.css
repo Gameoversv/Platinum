@@ -65,13 +65,13 @@
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 400px 1fr;
   gap: 0;
   min-height: 350px;
 }
 
 .service-item.layout-right {
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 400px;
 }
 
 .service-item.layout-right .service-image-container {
@@ -112,13 +112,13 @@
 
 .service-image-container {
   background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.05) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
+  padding: 0;
   border-right: 1px solid var(--border-color);
   position: relative;
   overflow: hidden;
+  min-height: 350px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .service-item.layout-right .service-image-container {
@@ -127,31 +127,34 @@
 }
 
 .service-image {
-  width: 150px;
-  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.service-image-svg {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 163, 193, 0.1) 100%);
-  border: 2px solid rgba(0, 217, 255, 0.3);
-  border-radius: 50%;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--primary-color);
-  filter: drop-shadow(0 10px 30px rgba(0, 217, 255, 0.3));
 }
 
-.service-image svg {
-  width: 70px;
-  height: 70px;
+.service-image-svg svg {
+  width: 100px;
+  height: 100px;
   filter: drop-shadow(0 4px 12px rgba(0, 217, 255, 0.4));
 }
 
-.service-item:hover .service-image {
-  transform: scale(1.15);
-  border-color: var(--primary-color);
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(0, 163, 193, 0.15) 100%);
-  box-shadow: 0 0 30px rgba(0, 217, 255, 0.4), 0 0 50px rgba(0, 217, 255, 0.2);
-  filter: drop-shadow(0 15px 40px rgba(0, 217, 255, 0.5));
+.service-item:hover .service-image-container {
+  transform: scale(1.05);
 }
 
 .service-content {
@@ -309,7 +312,7 @@
 
   .service-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start;  
   }
 
   .service-details {
