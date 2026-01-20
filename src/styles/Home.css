@@ -16,10 +16,26 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background-image: url('/fondo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: 
     radial-gradient(circle at 15% 50%, rgba(0, 217, 255, 0.12) 0%, transparent 50%),
     radial-gradient(circle at 85% 50%, rgba(0, 217, 255, 0.12) 0%, transparent 50%);
   animation: pulse 10s ease-in-out infinite;
+  z-index: 1;
 }
 
 @keyframes pulse {
@@ -41,12 +57,13 @@
   bottom: 0;
   background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(0,217,255,0.08)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
   opacity: 0.4;
+  z-index: 2;
 }
 
 .hero-content {
   position: relative;
   text-align: center;
-  z-index: 1;
+  z-index: 3;
 }
 
 .hero-title {
@@ -64,10 +81,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   animation: fadeInUp 1s ease-out, glow 3s ease-in-out infinite;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Russo One', 'Impact', 'Arial Black', sans-serif;
   position: relative;
   line-height: 1.1;
 }

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../styles/Home.css'
 
 function Home() {
-  const whatsappNumber = '5215500000000'
+  const whatsappNumber = '18494909889'
   const whatsappMessage = encodeURIComponent('Hola, me gustaría agendar una cita en Platinum Auto Spa')
 
   const featuredServices = [

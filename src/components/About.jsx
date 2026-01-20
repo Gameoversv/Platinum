@@ -39,6 +39,16 @@ function About() {
       svg: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>,
       title: 'Atención Personalizada',
       description: 'Cada vehículo recibe el cuidado y atención que merece'
+    },
+    {
+      svg: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>,
+      title: 'Garantía de Servicio',
+      description: 'Todos nuestros trabajos están respaldados por garantía'
+    },
+    {
+      svg: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>,
+      title: 'Citas Flexibles',
+      description: 'Horarios adaptados a tu disponibilidad y necesidades'
     }
   ]
 
@@ -56,10 +66,7 @@ function About() {
           <h2>Nuestra Historia</h2>
           <div className="story-layout">
             <div className="story-logo-placeholder">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="logo-placeholder-icon">
-                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-3.25-.75-6-4.58-6-8.5V8.3l6-3.11v15.31z"/>
-              </svg>
-              <span className="logo-placeholder-text">Logo Platinum</span>
+              <img src="/logo2.jpg" alt="Platinum Logo" className="story-logo" />
             </div>
             <div className="story-content">
               <p>
@@ -155,7 +162,7 @@ function About() {
           <h2>¿Listo para experimentar el servicio Platinum?</h2>
           <p>Únete a cientos de clientes satisfechos que confían en nosotros</p>
           <a
-            href="https://wa.me/5215500000000?text=Hola,%20quiero%20conocer%20más%20sobre%20Platinum"
+            href="https://wa.me/18494909889?text=Hola,%20quiero%20conocer%20más%20sobre%20Platinum"
             className="btn btn-primary"
             target="_blank"
             rel="noopener noreferrer"

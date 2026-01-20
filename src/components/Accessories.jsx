@@ -8,40 +8,40 @@ function Accessories() {
 
   const accessories = {
     iluminacion: [
-      { name: 'Luces LED interiores', price: 'Desde $350', image: '💡' },
-      { name: 'Faros LED', price: 'Desde $1,200', image: '🔦' },
-      { name: 'Tiras LED decorativas', price: 'Desde $450', image: '✨' },
-      { name: 'Luces de neblina LED', price: 'Desde $800', image: '🌟' }
+      { name: 'Luces LED interiores', price: 'Consultar', image: '💡' },
+      { name: 'Faros LED', price: 'Consultar', image: '🔦' },
+      { name: 'Tiras LED decorativas', price: 'Consultar', image: '✨' },
+      { name: 'Luces de neblina LED', price: 'Consultar', image: '🌟' }
     ],
     interior: [
-      { name: 'Tapetes premium', price: 'Desde $600', image: '🚗' },
-      { name: 'Fundas para asientos', price: 'Desde $1,500', image: '💺' },
-      { name: 'Volantes deportivos', price: 'Desde $800', image: '⚙️' },
-      { name: 'Organizadores de cajuela', price: 'Desde $400', image: '📦' }
+      { name: 'Tapetes premium', price: 'Consultar', image: '🚗' },
+      { name: 'Fundas para asientos', price: 'Consultar', image: '💺' },
+      { name: 'Volantes deportivos', price: 'Consultar', image: '⚙️' },
+      { name: 'Organizadores de cajuela', price: 'Consultar', image: '📦' }
     ],
     exterior: [
-      { name: 'Espejos cromados', price: 'Desde $500', image: '🪞' },
-      { name: 'Spoilers', price: 'Desde $2,000', image: '🏎️' },
-      { name: 'Molduras cromadas', price: 'Desde $350', image: '✨' },
-      { name: 'Viseras para lluvia', price: 'Desde $600', image: '🌧️' }
+      { name: 'Espejos cromados', price: 'Consultar', image: '🪞' },
+      { name: 'Spoilers', price: 'Consultar', image: '🏎️' },
+      { name: 'Molduras cromadas', price: 'Consultar', image: '✨' },
+      { name: 'Viseras para lluvia', price: 'Consultar', image: '🌧️' }
     ],
     audio: [
-      { name: 'Bocinas premium', price: 'Desde $1,200', image: '🔊' },
-      { name: 'Amplificadores', price: 'Desde $2,500', image: '📻' },
-      { name: 'Subwoofers', price: 'Desde $1,800', image: '🎵' },
-      { name: 'Pantallas touch', price: 'Desde $3,500', image: '📱' }
+      { name: 'Bocinas premium', price: 'Consultar', image: '🔊' },
+      { name: 'Amplificadores', price: 'Consultar', image: '📻' },
+      { name: 'Subwoofers', price: 'Consultar', image: '🎵' },
+      { name: 'Pantallas touch', price: 'Consultar', image: '📱' }
     ],
     seguridad: [
-      { name: 'Alarmas', price: 'Desde $1,500', image: '🚨' },
-      { name: 'Cámaras de reversa', price: 'Desde $1,200', image: '📹' },
-      { name: 'Sensores de estacionamiento', price: 'Desde $800', image: '📡' },
-      { name: 'GPS tracking', price: 'Desde $2,000', image: '🛰️' }
+      { name: 'Alarmas', price: 'Consultar', image: '🚨' },
+      { name: 'Cámaras de reversa', price: 'Consultar', image: '📹' },
+      { name: 'Sensores de estacionamiento', price: 'Consultar', image: '📡' },
+      { name: 'GPS tracking', price: 'Consultar', image: '🛰️' }
     ],
     productos: [
-      { name: 'Cera premium', price: 'Desde $250', image: '🧴' },
-      { name: 'Shampoo automotriz', price: 'Desde $150', image: '🧽' },
-      { name: 'Aromatizantes premium', price: 'Desde $100', image: '🌸' },
-      { name: 'Protector de vinilo', price: 'Desde $200', image: '🛡️' }
+      { name: 'Cera premium', price: 'Consultar', image: '🧴' },
+      { name: 'Shampoo automotriz', price: 'Consultar', image: '🧽' },
+      { name: 'Aromatizantes premium', price: 'Consultar', image: '🌸' },
+      { name: 'Protector de vinilo', price: 'Consultar', image: '🛡️' }
     ]
   }
 
@@ -168,7 +168,7 @@ function Accessories() {
                 <h3>{item.name}</h3>
                 <p className="accessory-price">{item.price}</p>
                 <a
-                  href={`https://wa.me/5215500000000?text=${encodeURIComponent(`Hola, me interesa: ${item.name}`)}`}
+                  href={`https://wa.me/18494909889?text=${encodeURIComponent(`Hola, me interesa: ${item.name}`)}`}
                   className="btn btn-primary btn-small"
                   target="_blank"
                   rel="noopener noreferrer"

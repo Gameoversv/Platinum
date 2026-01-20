@@ -162,7 +162,7 @@ function Services() {
                   </div>
                 </div>
                 <a 
-                  href={`https://wa.me/5215500000000?text=${encodeURIComponent(`Hola, me interesa el servicio: ${service.name}`)}`}
+                  href={`https://wa.me/18494909889?text=${encodeURIComponent(`Hola, me interesa el servicio: ${service.name}`)}`}
                   className="btn btn-primary btn-small"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -178,7 +178,7 @@ function Services() {
           <h3>¿No encuentras lo que buscas?</h3>
           <p>Contáctanos y con gusto crearemos un paquete personalizado para ti</p>
           <a 
-            href="https://wa.me/5215500000000?text=Hola,%20necesito%20información%20sobre%20servicios%20personalizados"
+            href="https://wa.me/18494909889?text=Hola,%20necesito%20información%20sobre%20servicios%20personalizados"
             className="btn btn-secondary"
             target="_blank"
             rel="noopener noreferrer"

@@ -157,7 +157,7 @@ function FAQ() {
           <h3>¿No encontraste lo que buscabas?</h3>
           <p>Estamos aquí para ayudarte. Contáctanos directamente y con gusto resolveremos tus dudas.</p>
           <a
-            href="https://wa.me/5215500000000?text=Hola,%20tengo%20una%20pregunta"
+            href="https://wa.me/18494909889?text=Hola,%20tengo%20una%20pregunta"
             className="btn btn-primary"
             target="_blank"
             rel="noopener noreferrer"

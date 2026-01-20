@@ -12,7 +12,7 @@ function Contact() {
     message: ''
   })
 
-  const whatsappNumber = '5215500000000'
+  const whatsappNumber = '18494909889'
 
   const handleChange = (e) => {
     setFormData({

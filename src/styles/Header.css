@@ -47,44 +47,31 @@
 .header-logo-placeholder {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
-  border: 2px solid var(--border-color);
-  border-radius: 12px;
+  gap: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   transition: all 0.3s ease;
+  height: 60px;
 }
 
 .header-logo-placeholder:hover {
-  border-color: var(--primary-color);
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.08) 100%);
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  background: transparent;
+  box-shadow: none;
 }
 
-.header-logo-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--primary-color);
+.header-logo-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
   transition: all 0.3s ease;
+  border-radius: 50%;
 }
 
-.header-logo-placeholder:hover .header-logo-icon {
-  transform: scale(1.1) rotate(5deg);
+.header-logo-placeholder:hover .header-logo-img {
   filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.6));
-}
-
-.header-logo-text {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 900;
-  color: var(--primary-color);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.3s ease;
-}
-
-.header-logo-placeholder:hover .header-logo-text {
-  text-shadow: 0 0 10px rgba(0, 217, 255, 0.6);
+  transform: scale(1.05);
 }
 
 .theme-toggle {
