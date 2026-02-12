@@ -2,33 +2,39 @@ import { Link } from 'react-router-dom'
 import '../styles/Home.css'
 
 function Home() {
-  const whatsappNumber = '18494909889'
+  const whatsappNumber = '18493607471'
   const whatsappMessage = encodeURIComponent('Hola, me gustaría agendar una cita en Platinum Auto Spa')
 
   const featuredServices = [
     {
       title: 'Lavado Detailing Platinum',
-      description: 'Servicio completo de lavado profesional con productos premium'
+      description: 'Servicio completo de lavado profesional con productos premium',
+      image: '/lavado debajo grafito.jpg'
     },
     {
       title: 'Eliminación de Olor con Ozono',
-      description: 'Tecnología avanzada para eliminar olores persistentes'
+      description: 'Tecnología avanzada para eliminar olores persistentes',
+      image: '/ozone treatment.jpg'
     },
     {
       title: 'Encerado del Vehículo',
-      description: 'Protección y brillo duradero para tu auto'
+      description: 'Protección y brillo duradero para tu auto',
+      image: '/encerado de vehiculo.jpg'
     },
     {
       title: 'Tratamiento de Plástico Negro',
-      description: 'Restauración y protección de plásticos exteriores'
+      description: 'Restauración y protección de plásticos exteriores',
+      image: '/Tratamiento de plastico negro.png'
     },
     {
       title: 'Limpieza Básica del Motor',
-      description: 'Desengrase y limpieza profesional del compartimiento'
+      description: 'Desengrase y limpieza profesional del compartimiento',
+      image: '/limpieza de motor.jpg'
     },
     {
       title: 'Aspirado Profundo',
-      description: 'Limpieza exhaustiva de interiores y tapicería'
+      description: 'Limpieza exhaustiva de interiores y tapicería',
+      image: '/aspirado profundo.jpg'
     }
   ]
 
@@ -39,23 +45,17 @@ function Home() {
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <h1 className="hero-title">
-            <span className="brand-name">Platinum</span>
-            <span className="subtitle">Accesorios & Auto Spa</span>
+            ¡Bienvenidos a Platinum Auto Spa!
           </h1>
           <p className="hero-description">
-            Servicios profesionales de detailing y los mejores accesorios para tu vehículo
+            Especialistas en Accesorios y Detalle Automotriz
           </p>
           <div className="hero-buttons">
-            <a 
-              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+            <Link 
+              to="/servicios"
               className="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
             >
-              Agendar Cita
-            </a>
-            <Link to="/servicios" className="btn btn-secondary">
-              Ver Servicios
+              Ver Más
             </Link>
           </div>
         </div>
@@ -122,9 +122,17 @@ function Home() {
             {featuredServices.map((service, index) => (
               <div key={index} className="service-card">
                 <div className="service-image-placeholder">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="service-placeholder-icon">
-                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                  </svg>
+                  {service.image ? (
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }}
+                    />
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="service-placeholder-icon">
+                      <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                    </svg>
+                  )}
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
@@ -142,11 +150,10 @@ function Home() {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
-          <h2>¿Listo para darle a tu auto el cuidado que merece?</h2>
-          <p>Agenda tu cita hoy y experimenta el servicio Platinum</p>
+          <h2>Agenda tu cita hoy y experimenta el servicio Platinum</h2>
           <a 
             href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-            className="btn btn-large"
+            className="btn btn-primary btn-large"
             target="_blank"
             rel="noopener noreferrer"
           >

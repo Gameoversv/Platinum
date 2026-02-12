@@ -141,3 +141,42 @@
     margin-top: 60px;
   }
 }
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 15px 15px;
+    margin-top: 40px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+
+  .footer-section p {
+    font-size: 0.9rem;
+  }
+
+  .footer-section ul li a {
+    padding: 6px 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
+  }
+}

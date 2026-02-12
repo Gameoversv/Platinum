@@ -23,7 +23,7 @@ function Services() {
     {
       name: 'Ceramic Coating',
       description: 'Recubrimiento cerámico de alta durabilidad y protección',
-      includes: ['Preparación de superficie', 'Aplicación de cerámica multicapa', 'Curado profesional', 'Protección hasta 5 años'],
+      includes: ['Preparación de superficie', 'Curado profesional', 'Protección hasta 5 años'],
       duration: '1-2 días',
       price: 'Consultar',
       image: '/ceramic coating.jpg'
@@ -63,7 +63,7 @@ function Services() {
     {
       name: 'Encerado de Vehículo',
       description: 'Servicio de encerado profesional',
-      includes: ['Lavado previo', 'Encerado completo', 'Pulido'],
+      includes: ['Lavado platinum', 'Encerado completo', 'Pulido'],
       duration: '2 horas',
       price: 'Consultar',
       image: '/encerado de vehiculo.jpg'
@@ -95,7 +95,7 @@ function Services() {
     {
       name: 'Brillado de Pantalla',
       description: 'Pulido y protección de pantalla táctil',
-      includes: ['Limpieza profunda', 'Pulido anti-rayones', 'Aplicación de protector', 'Eliminación de huellas'],
+      includes: ['Pulido anti-rayones', 'Eliminación de huellas'],
       duration: '30 min',
       price: 'Consultar',
       image: '/brillado de pantalla.jpg'
@@ -137,7 +137,6 @@ function Services() {
               <div className="service-content">
                 <div className="service-header">
                   <h3>{service.name}</h3>
-                  <span className="service-price">{service.price}</span>
                 </div>
                 <p className="service-description">{service.description}</p>
                 <div className="service-details">
@@ -162,29 +161,16 @@ function Services() {
                   </div>
                 </div>
                 <a 
-                  href={`https://wa.me/18494909889?text=${encodeURIComponent(`Hola, me interesa el servicio: ${service.name}`)}`}
+                  href={`https://wa.me/18493607471?text=${encodeURIComponent(`Hola, me gustaría obtener más información sobre el servicio de ${service.name}. ¿Podrían darme detalles sobre disponibilidad y precio?`)}`}
                   className="btn btn-primary btn-small"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Agendar este servicio
+                  Consultar
                 </a>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="services-note">
-          <h3>¿No encuentras lo que buscas?</h3>
-          <p>Contáctanos y con gusto crearemos un paquete personalizado para ti</p>
-          <a 
-            href="https://wa.me/18494909889?text=Hola,%20necesito%20información%20sobre%20servicios%20personalizados"
-            className="btn btn-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Consultar Servicio Personalizado
-          </a>
         </div>
       </div>
     </div>

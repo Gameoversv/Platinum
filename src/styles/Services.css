@@ -2,6 +2,15 @@
   padding-bottom: 60px;
 }
 
+.services-page .page-hero {
+  padding: 100px 20px 80px !important;
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-bg) 100%) !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(45, 212, 191, 0.2) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
 .services-filter {
   display: flex;
   justify-content: center;
@@ -322,5 +331,47 @@
 
   .service-duration {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-filter {
+    gap: 8px;
+  }
+
+  .services-filter button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+
+  .service-image-container {
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  .service-content {
+    padding: 20px;
+  }
+
+  .service-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-price {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+
+  .services-note {
+    padding: 25px;
+  }
+
+  .services-note h3 {
+    font-size: 1.4rem;
+  }
+
+  .services-note p {
+    font-size: 0.95rem;
   }
 }

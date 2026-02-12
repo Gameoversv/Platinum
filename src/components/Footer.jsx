@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../styles/Footer.css'
 
 function Footer() {
-  const whatsappNumber = '18494909889'
+  const whatsappNumber = '18493607471'
   const whatsappMessage = encodeURIComponent('Hola, me gustaría agendar una cita en Platinum Auto Spa')
 
   return (

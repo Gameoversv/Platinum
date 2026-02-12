@@ -12,7 +12,7 @@ function Contact() {
     message: ''
   })
 
-  const whatsappNumber = '18494909889'
+  const whatsappNumber = '18493607471'
 
   const handleChange = (e) => {
     setFormData({
@@ -171,7 +171,7 @@ Hola, me gustaría agendar una cita:
               <div>
                 <h3>WhatsApp</h3>
                 <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-                  +52 1 55 0000 0000
+                  +1 (849)-9889
                 </a>
               </div>
             </div>
@@ -184,7 +184,7 @@ Hola, me gustaría agendar una cita:
               </div>
               <div>
                 <h3>Dirección</h3>
-                <p>Visítanos en nuestra ubicación</p>
+                <p>Santiago de los Caballeros 51000</p>
                 <a href="#map" className="link-btn">Ver en mapa</a>
               </div>
             </div>
@@ -198,9 +198,9 @@ Hola, me gustaría agendar una cita:
               <div>
                 <h3>Horario</h3>
                 <ul className="schedule-list">
-                  <li>Lun - Vie: 9:00 - 19:00</li>
-                  <li>Sábado: 9:00 - 18:00</li>
-                  <li>Domingo: 10:00 - 15:00</li>
+                  <li>Lun - Vie: 8:00 AM - 6:00 PM</li>
+                  <li>Sábado: 8:00 AM - 6:00 PM</li>
+                  <li>Domingo: 8:00 AM - 1:00 PM</li>
                 </ul>
               </div>
             </div>
@@ -226,13 +226,16 @@ Hola, me gustaría agendar una cita:
         <div id="map" className="map-section">
           <h2>Nuestra Ubicación</h2>
           <div className="map-container">
-            <div className="map-placeholder">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              <p>Inserta aquí tu Google Maps embed</p>
-              <small>Agrega el iframe de Google Maps con tu ubicación exacta</small>
-            </div>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.589659094261!2d-70.61767189999999!3d19.386912499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb1d1003e24aa6d%3A0x48e6ccace1927a60!2sPlatinum%20Auto%20Spa%20%26%20Accesorios!5e0!3m2!1ses-419!2sdo!4v1769970277190!5m2!1ses-419!2sdo" 
+              width="100%" 
+              height="450" 
+              style={{border:0}} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ubicación de Platinum Auto Spa"
+            ></iframe>
           </div>
         </div>
       </div>

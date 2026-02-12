@@ -440,4 +440,62 @@
   .team-grid {
     grid-template-columns: 1fr;
   }
+
+  .about-mission {
+    padding: 50px 0;
+    margin: 40px 0;
+  }
+
+  .about-team {
+    padding: 50px 0;
+    margin: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-story {
+    padding: 40px 0;
+  }
+
+  .about-story h2,
+  .about-guarantees h2,
+  .about-team h2 {
+    font-size: 1.6rem;
+  }
+
+  .story-content p {
+    font-size: 0.95rem;
+  }
+
+  .about-mission {
+    padding: 30px 0;
+    margin: 30px 0;
+  }
+
+  .mission-card,
+  .guarantee-card,
+  .team-card {
+    padding: 25px 20px;
+  }
+
+  .about-team {
+    padding: 30px 0;
+    margin: 30px 0;
+  }
+
+  .about-cta {
+    padding: 40px 0;
+  }
+
+  .about-cta h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-cta p {
+    font-size: 0.95rem;
+  }
+
+  .about-guarantees {
+    padding: 40px 0;
+  }
 }

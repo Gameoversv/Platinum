@@ -22,6 +22,7 @@
   border-radius: 20px;
   padding: 40px;
   position: relative;
+  z-index: 1;
 }
 
 .contact-form::before {
@@ -37,6 +38,8 @@
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .form-group {
@@ -65,9 +68,15 @@
   border: 1px solid var(--border-color);
   border-radius: 12px;
   color: var(--text-primary);
-  font-size: 0.95rem;
+  font-size: 16px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Inter', sans-serif;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+  /* Mobile optimization */
+  -webkit-appearance: none;
+  -webkit-border-radius: 12px;
 }
 
 .form-group input:focus,
@@ -273,5 +282,41 @@
 
   .map-container {
     height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 15px;
+  }
+
+  .contact-form-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .contact-info-card {
+    padding: 20px;
+  }
+
+  .social-button {
+    padding: 14px 24px;
+    min-height: 44px;
+    font-size: 0.9rem;
+  }
+
+  .map-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .map-container {
+    height: 250px;
+  }
+
+  .map-placeholder {
+    padding: 25px;
+  }
+
+  .contact-social {
+    padding: 15px;
   }
 }

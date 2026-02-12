@@ -268,3 +268,37 @@
     letter-spacing: 1px;
   }
 }
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 15px;
+  }
+
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .nav {
+    top: 60px;
+  }
+
+  .nav a {
+    padding: 14px 20px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-logo-text {
+    font-size: 1rem;
+  }
+}

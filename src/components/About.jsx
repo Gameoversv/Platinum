@@ -162,7 +162,7 @@ function About() {
           <h2>¿Listo para experimentar el servicio Platinum?</h2>
           <p>Únete a cientos de clientes satisfechos que confían en nosotros</p>
           <a
-            href="https://wa.me/18494909889?text=Hola,%20quiero%20conocer%20más%20sobre%20Platinum"
+            href="https://wa.me/18493607471?text=Hola,%20quiero%20conocer%20más%20sobre%20Platinum"
             className="btn btn-primary"
             target="_blank"
             rel="noopener noreferrer"

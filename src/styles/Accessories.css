@@ -8,6 +8,8 @@
   gap: 15px;
   margin: 40px 0;
   flex-wrap: wrap;
+  /* Touch optimization */
+  -webkit-overflow-scrolling: touch;
 }
 
 .accessories-filter button {
@@ -20,6 +22,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
+  /* Touch optimization */
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .accessories-filter button:hover,
@@ -67,6 +73,9 @@
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
+  /* Mobile optimization */
+  -webkit-appearance: none;
+  -webkit-border-radius: 12px;
 }
 
 .search-input:focus {
@@ -129,6 +138,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
+  /* Touch optimization */
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .view-btn svg {
@@ -174,10 +187,12 @@
   margin: 40px 0;
 }
 
+/* ✅ GRID */
 .accessories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
+  align-items: stretch; /* ✅ para que los cards en la fila puedan estirar */
 }
 
 .accessories-list {
@@ -186,6 +201,9 @@
   gap: 20px;
 }
 
+/* ===========================
+   CARD GRID
+   =========================== */
 .accessory-card.grid-view {
   background: linear-gradient(135deg, var(--dark-card) 0%, rgba(22, 25, 30, 0.9) 100%);
   border: 1px solid var(--border-color);
@@ -197,6 +215,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  height: 100%; /* ✅ clave */
 }
 
 .accessory-card.grid-view::before {
@@ -212,6 +231,24 @@
   border-radius: 50%;
 }
 
+.accessory-card.grid-view:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.accessory-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--glow), var(--shadow-lg);
+  background: linear-gradient(135deg, var(--dark-card-hover) 0%, rgba(28, 33, 40, 1) 100%);
+}
+
+.accessory-card.grid-view:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* ===========================
+   CARD LIST
+   =========================== */
 .accessory-card.list-view {
   background: linear-gradient(135deg, var(--dark-card) 0%, rgba(22, 25, 30, 0.9) 100%);
   border: 1px solid var(--border-color);
@@ -224,6 +261,10 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+
+.accessory-card.list-view:hover {
+  transform: translateX(5px);
 }
 
 .accessory-card.list-view .accessory-image {
@@ -256,24 +297,9 @@
   white-space: nowrap;
 }
 
-.accessory-card.grid-view:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.accessory-card:hover {
-  border-color: var(--primary-color);
-  box-shadow: var(--glow), var(--shadow-lg);
-  background: linear-gradient(135deg, var(--dark-card-hover) 0%, rgba(28, 33, 40, 1) 100%);
-}
-
-.accessory-card.grid-view:hover {
-  transform: translateY(-10px) scale(1.02);
-}
-
-.accessory-card.list-view:hover {
-  transform: translateX(5px);
-}
+/* ===========================
+   PLACEHOLDER / IMAGEN
+   =========================== */
 
 .accessory-image-placeholder {
   background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
@@ -287,6 +313,41 @@
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+
+/* ✅ Cuando hay imagen: quitar dashed + fondo (usa class has-image en JSX) */
+.accessory-image-placeholder.has-image {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ✅ Extra: por si tu navegador soporta :has() */
+.accessory-image-placeholder:has(img.accessory-image) {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ✅ Evitar borde/outline raro */
+.accessory-image-placeholder img.accessory-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  outline: none;
+  /* Mobile optimization */
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.accessory-image,
+.accessory-image:focus,
+.accessory-image:active {
+  outline: none !important;
 }
 
 .accessory-card.grid-view .accessory-image-placeholder {
@@ -326,7 +387,8 @@
   font-size: 0.7rem;
 }
 
-.accessory-card:hover .accessory-image-placeholder {
+/* ✅ Hover solo para placeholders (sin imagen) */
+.accessory-card:hover .accessory-image-placeholder:not(.has-image) {
   border-color: var(--primary-color);
   background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.08) 100%);
 }
@@ -342,17 +404,26 @@
   color: var(--primary-color);
 }
 
+/* ===========================
+   INFO + TITULO + BOTON (GRID)
+   ✅ Esto alinea todos los "Consultar"
+   =========================== */
+.accessory-card.grid-view .accessory-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .accessory-card.grid-view h3 {
   color: var(--text-primary);
   font-size: 1.15rem;
-  margin-bottom: 12px;
-  min-height: 52px;
+  margin: 0 0 12px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  flex: 1; /* ✅ empuja el botón abajo */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  transition: color 0.3s ease;
-  position: relative;
 }
 
 .accessory-card:hover h3 {
@@ -367,10 +438,19 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* Si tienes precio, lo dejas; si no, no afecta */
 .accessory-card.grid-view .btn {
-  margin-top: auto;
+  margin-top: 0; /* ya queda abajo por flex:1 en el h3 */
+  /* Mobile touch optimization */
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
 }
 
+/* ===========================
+   INFO CARDS
+   =========================== */
 .accessories-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -404,14 +484,68 @@
   line-height: 1.6;
 }
 
+/* ===========================
+   MODAL STYLES
+   =========================== */
+.image-modal {
+  /* Optimize for mobile touch */
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  /* Prevent body scroll when modal is active */
+  overscroll-behavior: contain;
+}
+
+.modal-image {
+  /* Touch optimization */
+  -webkit-user-drag: none;
+  user-select: none;
+  touch-action: manipulation;
+  /* Smooth transitions */
+  transition: transform 0.3s ease;
+}
+
+/* ===========================
+   MOBILE OPTIMIZATIONS
+   =========================== */
+
+/* Tablet Portrait */
+@media (max-width: 1024px) {
+  .accessories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+  }
+
+  .accessories-filter {
+    gap: 12px;
+  }
+
+  .accessories-filter button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablet */
 @media (max-width: 768px) {
+  .accessories-page {
+    padding-bottom: 40px;
+  }
+
   .accessories-controls {
     flex-direction: column;
     align-items: stretch;
+    gap: 15px;
+    margin: 20px 0;
   }
 
   .search-container {
     max-width: 100%;
+    min-width: unset;
+  }
+
+  .search-input {
+    padding: 12px 45px 12px 40px;
+    font-size: 16px; /* Prevents zoom on iOS */
   }
 
   .view-controls {
@@ -421,66 +555,41 @@
   .view-btn {
     flex: 1;
     justify-content: center;
+    padding: 12px 18px;
+    min-height: 44px; /* Touch target */
   }
 
   .accessories-filter {
-    flex-direction: column;
-    align-items: stretch;
+    gap: 10px;
+    margin: 30px 0;
   }
 
   .accessories-filter button {
-    width: 100%;
+    padding: 12px 20px;
+    min-height: 44px; /* Touch target */
+    font-size: 0.9rem;
   }
 
   .accessories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
+    margin: 30px 0;
   }
 
   .accessory-card.grid-view {
-    padding: 20px;
+    padding: 20px 15px;
   }
 
   .accessory-card.grid-view .accessory-image-placeholder {
-    height: 150px;
-  }
-
-  .accessory-card.list-view .accessory-image-placeholder {
-    height: 100px;
-    width: 100px;
-    min-width: 100px;
-  }
-
-  .placeholder-icon {
-    width: 45px;
-    height: 45px;
-  }
-
-  .accessory-card.list-view .placeholder-icon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .placeholder-text {
-    font-size: 0.75rem;
-  }
-
-  .accessory-card.list-view .placeholder-text {
-    font-size: 0.65rem;
-  }
-
-  .accessory-card.grid-view h3 {
-    font-size: 1rem;
-    min-height: 40px;
+    height: 160px;
   }
 
   .accessory-card.list-view {
     grid-template-columns: 1fr;
     gap: 15px;
     text-align: center;
+    padding: 20px;
   }
-
-
 
   .accessory-card.list-view .accessory-info {
     flex-direction: column;
@@ -490,9 +599,226 @@
 
   .accessory-card.list-view h3 {
     text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .accessory-card.list-view .accessory-image-placeholder {
+    height: 120px;
+    width: 120px;
+    min-width: 120px;
+    align-self: center;
   }
 
   .accessories-info {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .accessories-filter {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .accessories-filter button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    min-width: auto;
+    flex: 0 0 auto;
+  }
+
+  .accessories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .accessory-card.grid-view {
+    padding: 15px 12px;
+  }
+
+  .accessory-card.grid-view h3 {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .accessory-card.grid-view .accessory-image-placeholder {
+    height: 140px;
+  }
+
+  .placeholder-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .placeholder-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .accessories-page {
+    padding-bottom: 30px;
+  }
+
+  .page-hero {
+    padding: 40px 0;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .accessories-filter {
+    margin: 20px 0;
+  }
+
+  .accessories-filter button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .accessories-controls {
+    margin: 15px 0;
+  }
+
+  .search-input {
+    padding: 10px 40px 10px 35px;
+  }
+
+  .search-icon {
+    width: 18px;
+    height: 18px;
+    left: 12px;
+  }
+
+  .clear-search {
+    right: 8px;
+  }
+
+  .view-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .accessories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .accessory-card.grid-view {
+    padding: 12px 10px;
+  }
+
+  .accessory-card.grid-view h3 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .accessory-card.grid-view .accessory-image-placeholder {
+    height: 120px;
+    margin-bottom: 10px;
+  }
+
+  .accessory-card.grid-view .accessory-price {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  .accessory-card.grid-view .btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .accessory-card.list-view {
+    padding: 15px;
+  }
+
+  .accessory-card.list-view .accessory-image-placeholder {
+    height: 100px;
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .placeholder-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .accessory-card.list-view .placeholder-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .placeholder-text {
+    font-size: 0.7rem;
+  }
+
+  .accessory-card.list-view .placeholder-text {
+    font-size: 0.65rem;
+  }
+
+  .no-results {
+    padding: 60px 20px;
+  }
+
+  .no-results svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .no-results h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile Extra Small */
+@media (max-width: 360px) {
+  .accessories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .accessory-card.grid-view {
+    padding: 10px 8px;
+  }
+
+  .accessory-card.grid-view h3 {
+    font-size: 0.85rem;
+  }
+
+  .accessory-card.grid-view .accessory-image-placeholder {
+    height: 100px;
+  }
+
+  .accessory-card.grid-view .btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  .accessories-filter button {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+
+/* Modal optimizations for mobile */
+@media (max-width: 480px) {
+  .image-modal {
+    padding: 10px !important;
+  }
+
+  .modal-image {
+    border-radius: 12px !important;
+    padding: 4px !important;
   }
 }
